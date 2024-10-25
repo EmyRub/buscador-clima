@@ -1,0 +1,23 @@
+.title {
+    font-size: 3rem;
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.container {
+    width: 95%;
+    max-width: 100rem;
+    max-width: 0 auto;
+}
+
+@media(min-width: 768px) {
+    
+    .container {
+        gap: 4rem;
+        display: grid;
+        grid-area: 4rem;
+        margin: 5rem auto 0;
+        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
