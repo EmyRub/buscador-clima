@@ -1,8 +1,8 @@
-import { ChangeEvent, FormEvent, useState } from "react";
-import { countries } from "../../data/countries";
+import Alert from "../Alert/Alert";
 import styles from './Form.module.css'
 import { SearchType } from "../../types";
-import Alert from "../Alert/Alert";
+import { countries } from "../../data/countries";
+import { ChangeEvent, SubmitEvent, useState } from "react";
 
 type FormProps = {
     fetchWeather: (search: SearchType) => Promise<void>
@@ -24,7 +24,7 @@ export default function Form({ fetchWeather }: FormProps) {
         })
     }
 
-    const handleSubmit = (e: FormEvent<HTMLElement>) => {
+    const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (Object.values(search).includes('')) {
             setAlert('Todos los campos son obligatorios')
@@ -34,6 +34,7 @@ export default function Form({ fetchWeather }: FormProps) {
     }
 
     return (
+        
         <form
             className={styles.form}
             onSubmit={handleSubmit}
